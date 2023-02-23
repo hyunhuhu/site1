@@ -209,14 +209,14 @@ aside a{
 
 /* ----------------------------Section------------------------- */
 section{
-  /* width: 100%; */
+  width: 100%;
   margin: auto;
   text-align: center;
 }
 
 /* ------------------enjoy--------------- */
 #enjoy{
-  width: 100%;
+  width: inherit;
   height: 780px;
 }
 #enjoy h2{
@@ -239,6 +239,9 @@ section{
   justify-content: center;
   align-items: center;
 }
+
+
+
 #enjoy .joy_menu ul li{
   margin: 0 50px;
 }
@@ -384,7 +387,7 @@ section{
 /* ------------------pay------------------ */
 #pay{
   width: 100%;
-  background: url(../image/pay-background2.jpg) no-repeat center top;
+  background: url(../image/pay-background.jpg) no-repeat center top;
   background-size: cover;
   position: relative;
   z-index: 0;
@@ -739,86 +742,31 @@ section{
   color: #777;
   margin-top: 10px;
 }
-.special_body{
-  /* background-color: #1f002e51; */
-  /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
-  background-image: linear-gradient(to top, #4e4e4e 0%, #f5efef00 100%);
-}
-.special_card{
-  width: 1200px;
-  margin: auto;
+.special_card {
+  /* width: 1200px;
+  margin: auto; */
   height: 700px;
   display: flex;
 }
 
 .special_card li {
-  /* border-right: 1px solid #000; */
+  border-right: 5px solid #000;
   flex: 1;
-  /* width: calc(1200 / 4); */
   position: relative;
   overflow: hidden;
   transition: 0.5s;
+  filter: grayscale(0.7);
 }
-
-.special_card li:nth-child(n+1):nth-child(-n+5)::before{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #000000c4;
-  top: 0;
-  left: 0;
-  transition: 0.35s;
+.special_card li:last-child{
+  border: none;
 }
-
-.special_card li:nth-child(n+1):nth-child(-n+5):after{
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%);
-  transition: 0.35s;
-}
-.special_card li:nth-child(1):after{ /* 각자 리스트에 맞는 이미지도 바꾸기 / 흑백필터도 바꾸기 */
-  background: url(../image/m_logo.png) no-repeat center center;
-  width: 119px;
-  height: 80px;
-}
-.special_card li:nth-child(2):after{
-  background: url(../image/minsok_logo.png) no-repeat center center;
-  width: 119px;
-  height: 80px;
-}
-.special_card li:nth-child(3):after{
-  background: url(../image/aqualium2_logo.png) no-repeat center center;
-  width: 120px;
-  height: 100px;
-  
-}
-.special_card li:nth-child(4):after{
-  background: url(../image/kidzania_logo.png) no-repeat center center;
-  width: 119px;
-  height: 80px;
-}
-.special_card li:nth-child(5):after{
-  background: url(../image/footer_logo.png) no-repeat center center;
-  width: 119px;
-  height: 80px;
-}
-
 
 .special_card li:hover {
   flex: 2;
-  /* filter: grayscale(0); */
+  filter: grayscale(0);
 }
-.special_card li:hover:nth-child(n+1):nth-child(-n+5)::before,
-.special_card li:hover:nth-child(n+1):nth-child(-n+5)::after{
-  opacity: 0;
-}
-
 .special_card li:nth-child(1) {
   background: url(../img/롯데월드어드벤처.jpg) no-repeat center center;
-  
 }
 .special_card li:nth-child(2) {
   background: url(../img/롯데월드\ 민속박물관.jpg) no-repeat center center;
@@ -836,10 +784,10 @@ section{
 .special_cont{
   position: absolute;
   bottom: -250px;
-  background-color:  rgba(0, 0, 0, 0.9);
+  background-color: #000;
   color: #fff;
   width: 100%;
-  height: 220px;
+  height: 200px;
   padding-top: 65px;
   box-sizing: border-box;
   text-align: center;
@@ -848,45 +796,19 @@ section{
 .special_cont:before{
   content: '';
   position: absolute;
-  /* background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000;
   width: 100%;
-  height: 20px;
-  top: 0px;
-  left: -20px;
-  transform: rotate(-1deg) scale(1.3); */
-  /* transform-origin: left bottom; */
+  height: 30px;
+  top: 10px;
+  left: -15px;
+  transform: rotate(-3deg) scale(1.3);
+  transform-origin: left bottom;
 }
 .special_card li:hover .special_cont{
   bottom: 0;
   transition-delay: 0.35s;
 }
-.special_cont h6{
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.special_cont p{
-  font-size: 15px;
-  color: #e6e6e6;
-}
-.special_cont p>i{
-  font-size: 14px;
-  display: block;
-  font-style: normal;
-  color: #666;
-  margin-top: 10px;
-}
-.special_cont div a{
-  font-size: 13px;
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  background-color: #7314a2;
-  padding: 3px 5px;
-  border-radius: 3px;
-  display: inline-block;
-}
+
 /* ---------------service----------------- */
 #service{
   width: 100%;
