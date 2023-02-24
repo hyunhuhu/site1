@@ -218,7 +218,6 @@ aside a:nth-child(3)>span{
   z-index: 9999;
   cursor: pointer;
 }
-
 aside a:nth-child(2)::before,
 aside a:nth-child(3)::before{
   content: '';
@@ -245,6 +244,7 @@ aside a:nth-child(3)>span>i{
   color: #ffffff;
   opacity: 0;
   transition: 0.2s;
+  visibility: hidden;
 }
 aside a:nth-child(3)>span{
   background: url(../image/fixed_btn_03.png) no-repeat center center;
@@ -263,6 +263,8 @@ aside a:nth-child(3):hover::before{
 aside a:nth-child(2):hover>span>i,
 aside a:nth-child(3):hover>span>i{
   opacity: 1;
+  visibility: visible;
+
 }
 
 /* ----------------------------Section------------------------- */
@@ -273,6 +275,7 @@ section{
 }
 /* ------------------enjoy--------------- */
 #enjoy{
+  border: 1px solid #00000000;
   width: 100%;
   height: 780px;
 }
@@ -435,6 +438,7 @@ section{
   background: url(../image/pay-background2.jpg) no-repeat center top;
   background-size: cover;
   position: relative;
+  height: 850px;
   z-index: 0;
 }
 #pay::before{
@@ -452,10 +456,8 @@ section{
   width: 1200px;
   margin: auto;
   height: 850px;
-  /* border: 1px solid #000; */
 }
 .pay_title{
-  /* border: 1px solid #000; */
   padding: 70px 0 30px 0;
   margin-bottom: 30px;
   font-size: 35px;
