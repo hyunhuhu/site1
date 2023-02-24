@@ -1,3 +1,4 @@
+
 @import url(common.css);
 @font-face {
   font-family: 'MyLotteBold';
@@ -11,6 +12,12 @@
     font-weight: 300 400;
     src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff') format('woff');
   }
+  @font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html{scroll-behavior: smooth;}
 
@@ -20,7 +27,6 @@ header{
   height: 100px;
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  /* border: 1px solid #000; */
   position: fixed;
   z-index: 99;
 }
@@ -73,7 +79,6 @@ header .gnb li a{
 
 /* ----------------------------Main---------------------------- */
 main{
-  /* border: 1px solid #000; */
   width: 100vw;
   height: 810px;
   background: url(../image/main1.jpg) no-repeat center top fixed;
@@ -88,7 +93,6 @@ main:hover{
 }
 /* ------------------------article---------------------------- */
 article{
-  /* margin-top: 5px; */
   width: 100%;
   height: 100px;
   background: #f1f1f1;
@@ -118,11 +122,22 @@ article span{
   position: absolute;
   left: 47%;
   font-family: 'MyLotteBold';
-  font-weight: 300;
+  font-weight: 400;
   transform: translateX(-50%);
   font-weight: bold;
   color: #333;
+  font-size: 24px;
 }
+
+.time::before{
+  content: '파크 운영시간 00:00 ~';
+  /* left: 40px; */
+  animation: time 1.1s;
+  animation-delay: 2.2s;
+  animation-fill-mode: both;
+
+}
+
 @keyframes time{
   0%{content: '파크 운영시간 00:00 ~';}
   10%{content: '파크 운영시간 01:00 ~';}
@@ -137,14 +152,15 @@ article span{
   100%{content: '파크 운영시간 10:00 ~';}
 }
 
-.time::before{
-  content: '파크 운영시간 00:00 ~';
-  /* left: 40px; */
-  animation: time 1.1s;
-  animation-delay: 1.2s;
+.time::after{
+  content: ' 00:00';
+  left: 60%;
+  animation: time_after 1.8s;
+  animation-delay: 3.2s;
   animation-fill-mode: both;
-  font-size: 23px;
+
 }
+
 @keyframes time_after{
   1%{content: ' 01:00';}
   5%{content: ' 02:00';}
@@ -167,14 +183,6 @@ article span{
   90%{content: ' 19:00';}
   95%{content: ' 20:00';}
   100%{content: ' 21:00';}
-}
-.time::after{
-  content: ' 00:00';
-  left: 59.5%;
-  animation: time_after 1.8s;
-  animation-delay: 2.2s;
-  animation-fill-mode: both;
-  font-size: 23px;
 }
 
 /* ----------------------------aside-------------------------- */
@@ -203,7 +211,8 @@ aside a:nth-child(1){
   }
 
 }
-aside a:nth-child(2){
+aside a:nth-child(2)>span,
+aside a:nth-child(3)>span{
   width: 70px;
   height: 70px;
   position: fixed;
@@ -211,28 +220,62 @@ aside a:nth-child(2){
   background-size: cover;
   bottom: 180px;
   right: 68px;
-  z-index: 99999;
+  z-index: 9999;
+  cursor: pointer;
 }
 
-aside a:nth-child(3){
+aside a:nth-child(2)::before,
+aside a:nth-child(3)::before{
+  content: '';
   width: 70px;
   height: 70px;
+  background-color: rgb(255, 185, 120);
   position: fixed;
+  bottom: 180px;
+  right: 68px;
+  border-radius: 40px;
+  transition: 0.5s;
+  z-index: 9999;
+}
+aside a:nth-child(2)>span>i,
+aside a:nth-child(3)>span>i{
+  position: absolute;
+  top: 50%;
+  left: -80%;
+  transform: translate(-50%,-50%);
+  width: 68px;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  opacity: 0;
+  transition: 0.2s;
+}
+aside a:nth-child(3)>span{
   background: url(../image/fixed_btn_03.png) no-repeat center center;
-  background-size: cover;
   bottom: 270px;
   right: 68px;
-  z-index: 99999;
 }
-
+aside a:nth-child(3)::before{
+  background-color: rgb(255, 182, 194);
+  bottom: 270px;
+  right: 68px;
+}
+aside a:nth-child(2):hover::before,
+aside a:nth-child(3):hover::before{
+  width: 200px;
+}
+aside a:nth-child(2):hover>span>i,
+aside a:nth-child(3):hover>span>i{
+  opacity: 1;
+}
 
 /* ----------------------------Section------------------------- */
 section{
-  /* width: 100%; */
+  width: 100%;
   margin: auto;
   text-align: center;
 }
-
 /* ------------------enjoy--------------- */
 #enjoy{
   width: 100%;
@@ -394,11 +437,6 @@ section{
     color: #fff;
     border-radius: 30px;
 }
-/* 
-#enjoy .btn{
-  display: block;
-  margin-top: 50px;
-} */
 
 /* ------------------pay------------------ */
 #pay{
@@ -431,6 +469,9 @@ section{
   margin-bottom: 30px;
   font-size: 35px;
   color: #222;
+}
+.pay_title>h3{
+  font-size: 35px;
 }
 .pay_title>h3>i{
   font-style: normal;
@@ -481,18 +522,20 @@ section{
   display: block;
   font-weight: normal;
 }
-.btn2{
+.btn{
   position: relative;
   display: block;
   width: 170px;
   height: 50px;
   left: 50%;
   font-size: 30px;
+  background-color: #ffffff8f;
+  border-radius: 30px;
   transform: translateX(-50%);
   margin-top: 70px;
-  color: rgba(0,0,0,0.9);
+  color: rgba(0, 0, 0, 0.79);
 }
-#pay .btn2::before{
+#pay .btn::before{
   content: '';
   position: absolute;
   left: 50%;
@@ -504,7 +547,7 @@ section{
   transform: translateX(-50%);
   transition: 0.5s;
 }
-#pay .btn2::after{
+#pay .btn::after{
   content: '자세히보기';
   position: absolute;
   width: 170px;
@@ -515,23 +558,11 @@ section{
   font-weight: bold;
   transform: translate(-50%,-50%);
 }
-#pay .btn2:hover{color: rgba(0,0,0,0.0);}
-#pay .btn2:hover::before{width: 100%;}
-#pay .btn2:hover::after{
+#pay .btn:hover{color: rgba(0,0,0,0.0);}
+#pay .btn:hover::before{width: 100%;}
+#pay .btn:hover::after{
   color: rgba(255, 255, 255, 0.9);
 }
-/* .btn4::before{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: crimson;
-  transform: translateX(-50%);
-  transition: 0.5s;
-}
-.btn4:hover::before{width: 100%;} */
 
 /* ------------------map------------------ */
 #map{
@@ -540,13 +571,10 @@ section{
   margin: 100px 0 50px 0;
   box-shadow: 0 0 12px rgba(0,0,0,0.2);
   padding: 20px 0 10px 0;
-  /* background-color: #ee9ca7; */
-  /* overflow: hidden; */
 }
 .map_body{
   width: 1200px;
   margin: auto;
-  /* border: 1px solid #000; */
   margin-bottom: 200px;
 }
 .map_body h5{
@@ -701,22 +729,22 @@ section{
   opacity: 0;
   z-index: 98;
   visibility: hidden;
-  top: 204px;
+  top: 212px;
   left: 30px;
-  color: #222;
+  color: rgb(43, 43, 43);
+  font-weight: 700;
+  font-family: 'OTWelcomeRA';
 }
-.map_number .num1::after{
-  content: '자이로스윙';
-}
+.map_number .num1::after{content: '자이로스윙';}
 .map_number .num2::after{content: '자이로드롭';}
 .map_number .num3::after{content: '혜성특급';}
 .map_number .num4::after{content: '자이로스핀';}
 .map_number .num5::after{content: '회전그네';}
 .map_number .num6::after{content: '번지드롭';}
-.map_number .num7::after{content: '신밧드의 모험'; top: 184px;}
-.map_number .num8::after{content: '스페인 해적선'; top: 144px;}
-.map_number .num9::after{content: '후룸라이드'; top: 74px;}
-.map_number .num10::after{content: '회전바구니'; top: 64px;}
+.map_number .num7::after{content: '신밧드의 모험'; top: 192px;}
+.map_number .num8::after{content: '스페인 해적선'; top: 152px;}
+.map_number .num9::after{content: '후룸라이드'; top: 81px;}
+.map_number .num10::after{content: '회전바구니'; top: 72px;}
 .map_number .num11::after{content: '플라이벤처';}
 .map_number .num12::after{content: '회전목마';}
 .map_number .num13::after{content: '키즈토리아'}
@@ -727,7 +755,7 @@ section{
   opacity: 1;
   visibility: visible;
 }
-
+/* 맵번호위치 */
 .map_number a:nth-child(2){top: 95px; left: 280px;}
 .map_number a:nth-child(3){top: 140px; left: 240px;}
 .map_number a:nth-child(4){top: 200px; left: 300px;}
@@ -763,8 +791,6 @@ section{
   margin-top: 10px;
 }
 .special_body{
-  /* background-color: #1f002e51; */
-  /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
   background-image: linear-gradient(to top, #4e4e4e 0%, #f5efef00 100%);
 }
 .special_card{
@@ -775,14 +801,11 @@ section{
 }
 
 .special_card li {
-  /* border-right: 1px solid #000; */
   flex: 1;
-  /* width: calc(1200 / 4); */
   position: relative;
   overflow: hidden;
   transition: 0.6s;
 }
-
 .special_card li:nth-child(n+1):nth-child(-n+5)::before{
   content: '';
   position: absolute;
@@ -793,7 +816,6 @@ section{
   left: 0;
   transition: 0.5s;
 }
-
 .special_card li:nth-child(n+1):nth-child(-n+5):after{
   content: '';
   position: absolute;
@@ -802,7 +824,7 @@ section{
   transform: translate(-50%);
   transition: 0.5s;
 }
-.special_card li:nth-child(1):after{ /* 각자 리스트에 맞는 이미지도 바꾸기 / 흑백필터도 바꾸기 */
+.special_card li:nth-child(1):after{ /* 로고 */
   background: url(../image/m_logo.png) no-repeat center center;
   width: 119px;
   height: 80px;
@@ -829,19 +851,15 @@ section{
   height: 80px;
 }
 
-
-.special_card li:hover {
-  flex: 2;
-  /* filter: grayscale(0); */
-}
+.special_card li:hover {flex: 2;}
 .special_card li:hover:nth-child(n+1):nth-child(-n+5)::before,
 .special_card li:hover:nth-child(n+1):nth-child(-n+5)::after{
   opacity: 0;
 }
 
+/* 배경사진 */
 .special_card li:nth-child(1) {
   background: url(../img/롯데월드어드벤처.jpg) no-repeat center center;
-  
 }
 .special_card li:nth-child(2) {
   background: url(../img/롯데월드\ 민속박물관.jpg) no-repeat center center;
@@ -868,13 +886,13 @@ section{
   text-align: center;
   transition: 0.5s;
 }
-.special_cont:before{
-  content: '';
-  position: absolute;
-}
 .special_card li:hover .special_cont{
   bottom: 0;
   transition-delay: 0.35s;
+}
+.special_cont:before{
+  content: '';
+  position: absolute;
 }
 .special_cont h6{
   font-size: 18px;
@@ -907,7 +925,6 @@ section{
   background-color: #fff;
   color: purple;
   font-weight: bold;
-  
 }
 /* ---------------service----------------- */
 #service{
@@ -943,7 +960,6 @@ section{
   text-align: left;
   width: 800px;
   margin: auto;
-  
 }
 .serv_Q{
   padding: 20px 0 0 0;
@@ -965,10 +981,7 @@ section{
   margin-top: 20px;
   transition: 0.75s;
 }
-.serv_A p span{
-  transition: 0.35s;
-  
-}
+.serv_A p span{transition: 0.35s;}
 .serv_A p span:nth-child(1){
   position: absolute;
   opacity: 0;
@@ -982,19 +995,16 @@ section{
   display: block;
   line-height: 27px;
 }
-
 .serv_Q:hover .serv_A{
   height: 220px;
   padding: 10px 10px 10px 1px;
   transition-delay: 0.1s;
 }
-
 .serv_Q:hover .serv_A>p span,
 .serv_Q:hover .serv_A>p .answer{
   opacity: 1;
   transition-delay: 0.1s;
 }
-
 /* ----------------Footer------------------ */
 footer{
   height: 180px;
@@ -1003,12 +1013,10 @@ footer{
   background-color: #ffffff;
   border-top: 1px solid rgba(0,0,0,0.3);
 }
-
 footer .foot_body{
   width: 1200px;
   margin: auto;
 }
-
 footer .foot_body .foot_gnb{
   margin-top: 20px;
   padding-bottom: 20px;
@@ -1028,7 +1036,6 @@ footer .foot_body .foot_gnb ul li a span{
   color: rgb(208, 2, 2);
   font-weight: 500;
 }
-
 footer .foot_bottom{
   display: flex;
   justify-content: space-around;
@@ -1041,7 +1048,6 @@ footer address{
   line-height: 23px;
   color: #777;
 }
-
 footer .sns>ul>li{
   display: inline-block;
   padding-right: 5px;
