@@ -312,12 +312,12 @@ section{
   border-radius: 30px;
 }
 #enjoy .joy_menu ul li:hover a{
-  background-color: rgba(58, 12, 70, 0.9);
+  background-color: purple;
   border-radius: 30px;
   color: #fff;
 }
 #enjoy .joy_menu .active{
-  background-color: rgba(58, 12, 70, 0.9);
+  background-color: purple;
   border-radius: 30px;
   color: #fff;
 }
@@ -498,10 +498,11 @@ section{
   cursor: pointer;
 }
 #pay .pay_card .pcard:hover h4{
-  color: rgba(58, 12, 70, 0.9);
+  color: rgb(58, 12, 70);
+  transform: scale(1.1);
 }
 #pay .pay_card .pcard:hover span{
-  color: rgba(58, 12, 70, 0.9);
+  color: rgb(58, 12, 70);
   font-weight: 600;
 }
 #pay .pay_card .pcard:hover strong{
@@ -946,12 +947,25 @@ section{
   justify-content: center;
   align-items: center;
   padding: 30px 0;
-}
-#service .serv_menu ul li{
   font-size: 20px;
   margin-right: 90px;
 }
 
+#service .serv_menu ul li a{
+  /* border: 1px solid #000; */
+  padding: 5px 13px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+#service .serv_menu ul li a:hover{
+  background-color: purple;
+  color: #fff;
+}
+#service .serv_menu .active{
+  background-color: purple;
+  border-radius: 30px;
+  color: #fff;
+}
 #service .serv_menu ul li:last-child{
   margin-right: 0;
 }
