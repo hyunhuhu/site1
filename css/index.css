@@ -365,6 +365,10 @@ section{
   color: #fff;
   transition: 0.5s;
   font-family: 'LotteMartDream';
+<<<<<<< HEAD
+=======
+  /* line-height: 300px; */
+>>>>>>> bc9ed7efb635c279f0b3c55e20e2abe8971994e7
 }
 #enjoy .joy_card .card:hover{
   top: -30px;
