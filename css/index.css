@@ -845,19 +845,19 @@ section{
 
 /* 배경사진 */
 .special_card li:nth-child(1) {
-  background: url(../img/롯데월드어드벤처.jpg) no-repeat center center;
+  background: url(../img/Lotte.jpg) no-repeat center center;
 }
 .special_card li:nth-child(2) {
-  background: url(../img/롯데월드\ 민속박물관.jpg) no-repeat center center;
+  background: url(../img/Minsok.jpg) no-repeat center center;
 }
 .special_card li:nth-child(3) {
-  background: url(../img/코엑스\ 아쿠아리움.jpg) no-repeat center center;
+  background: url(../img/Aquarium.jpg) no-repeat center center;
 }
 .special_card li:nth-child(4) {
-  background: url(../img/키자니아.jpg) no-repeat center center;
+  background: url(../img/Kidzania.jpg) no-repeat center center;
 }
 .special_card li:nth-child(5) {
-  background: url(../img/cj\ 고메브릿지.png) no-repeat center center;
+  background: url(../img/cj.png) no-repeat center center;
 }
 /* 글씨 */
 .special_cont{
